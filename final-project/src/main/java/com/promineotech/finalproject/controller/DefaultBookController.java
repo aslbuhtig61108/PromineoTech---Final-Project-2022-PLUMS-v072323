@@ -20,6 +20,7 @@ public class DefaultBookController implements BookController {
 	// This method requests an entire list of available books in the current database
 	@Override
 	public List<Book> retrieveAllBooks() {
+		log.debug("Controller: This operation obtains a list of all available books.");
 		return bookService.retrieveAllBooks();
 	}
 	

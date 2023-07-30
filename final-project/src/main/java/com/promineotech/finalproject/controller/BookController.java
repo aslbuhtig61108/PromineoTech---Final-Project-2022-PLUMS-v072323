@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
-
 import com.promineotech.finalproject.entity.Book;
 import com.promineotech.finalproject.entity.Genre;
 import com.promineotech.finalproject.entity.NewBookRequest;
@@ -28,8 +27,10 @@ import io.swagger.v3.oas.annotations.servers.Server;
 @RequestMapping("/books")
 @OpenAPIDefinition(info = @Info(title = "Book Management Service"), servers = {
 		@Server(url = "http://localhost:8080", description = "Local server") })
+
 public interface BookController {
 
+	// This section demonstrates the Read operation of the CRUD concept.
 	// formatter:off
 	@Operation(
 			summary = "Returns all available books",
@@ -90,6 +91,7 @@ public interface BookController {
 		}
 	)
 
+	// This and the previous method (LINE 55) defines the Read operation of the CRUD concept.
 	@GetMapping ("/readsBooksByIsbnAndOrGenre")
 	@ResponseStatus(code = HttpStatus.OK)
 	List<Book> retrieveABook(
@@ -97,7 +99,8 @@ public interface BookController {
 			String isbn,
 		@RequestParam(required = false)
 			Genre genre);
-	
+
+	// This section demonstrates the Post operation of the CRUD concept.
 	@Operation(
 			summary = "Create a new entry for a book",
 			description = "Returns a new book entry using user input",
@@ -122,12 +125,13 @@ public interface BookController {
 			            content = @Content(mediaType = "application/json" ))
 			}
 		)	
-			  
+	
+	// This method defines the Create operation of the CRUD concept.	
 	@PostMapping ("/createBook")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	Book createNewBook(@RequestBody NewBookRequest newBookEntry);
 
-	
+	// This section demonstrates the Delete operation of the CRUD concept.	
 	@Operation(
 			summary = "Delete a book",
 			description = "Delete a specific book by book number",
@@ -142,10 +146,12 @@ public interface BookController {
 			}
 	)
 		
+	// This method defines the Delete operation of the CRUD concept.	
 	@DeleteMapping("/deleteBook")
 	@ResponseStatus(code = HttpStatus.OK)
 	Book deleteBook(@RequestParam int booknumber_pk);
 
+	// This section demonstrates the Update operation of the CRUD concept.
 	@Operation(
 			summary = "Update a book",
 			description = "Updates an existing book entry's attributes using a book's primary key.",
@@ -199,9 +205,12 @@ public interface BookController {
 					description = "The additional notes/details of the selected book (i.e., 'condition, number of pages, etc.')")						
 			}
 	)
-	
-	// Using @RequestBody annotation is not the best approach for the Update operation
-	// Further review and comparison with my Get operation (starting at LINE 51) shows the best way to manage Update user input using @Paramater (LINES 80 and 85)
+
+	// This method defines the Delete operation of the CRUD concept.	
+	// Initially, using @RequestBody annotation was not an effective approach for multiple 
+	// parameter update operation. Furthermore, the Get operation (starting at LINE 51) shows 
+	// a more controlled way to manage the Update operation using the @Paramater 
+	// (LINES 80 and 85) annotation
 	@PutMapping("/updateBook")
 	@ResponseStatus(code = HttpStatus.ACCEPTED)
 	Book updateBook(

@@ -11,9 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Reader {
 
-	private int reader_pk;
+	private int readernumber_pk;
 	private String reader_id;
-	private int booknumber_fk;
 	private String first_name;
 	private String last_name;
 	private String phone;

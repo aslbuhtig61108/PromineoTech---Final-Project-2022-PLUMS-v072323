@@ -1,9 +1,9 @@
 DROP TABLE IF EXISTS plums_main_db;
 DROP TABLE IF EXISTS libraries_books;
 DROP TABLE IF EXISTS libraries;
-DROP TABLE IF EXISTS readers;
+DROP TABLE IF EXISTS reader_books;
 DROP TABLE IF EXISTS books;
-
+DROP TABLE IF EXISTS readers;
 
 CREATE TABLE books (
   booknumber_pk int unsigned AUTO_INCREMENT,
@@ -16,14 +16,21 @@ CREATE TABLE books (
 );
 
 CREATE TABLE readers (
-  reader_pk int unsigned NOT NULL AUTO_INCREMENT,
+  readernumber_pk int unsigned NOT NULL AUTO_INCREMENT,
   reader_id varchar(30) NOT NULL,
-  booknumber_fk int unsigned DEFAULT NULL,
   first_name varchar(26) NOT NULL, 
   last_name varchar(42) NOT NULL,
   phone varchar(15),
   email varchar(32),
-  PRIMARY KEY (reader_pk),
+  PRIMARY KEY (readernumber_pk)
+);
+
+CREATE TABLE reader_books (
+  readerbooksnumber_pk int unsigned NOT NULL AUTO_INCREMENT,
+  readernumber_fk int unsigned DEFAULT NULL,
+  booknumber_fk int unsigned DEFAULT NULL,
+  PRIMARY KEY (readerbooksnumber_pk),
+  FOREIGN KEY (readernumber_fk) REFERENCES readers (readernumber_pk) ON DELETE CASCADE,
   FOREIGN KEY (booknumber_fk) REFERENCES books (booknumber_pk) ON DELETE CASCADE
 );
 
@@ -45,11 +52,11 @@ CREATE TABLE libraries_books (
 
 CREATE TABLE plums_main_db (
   plumsid_pk int unsigned NOT NULL AUTO_INCREMENT,
-  reader_fk int unsigned NOT NULL,
+  readernumber_fk int unsigned NOT NULL,
   libraryid_fk int unsigned NOT NULL,
   booknumber_fk int unsigned NOT NULL,
   PRIMARY KEY (plumsid_pk),
-  FOREIGN KEY (reader_fk) REFERENCES readers (reader_pk) ON DELETE CASCADE,
+  FOREIGN KEY (readernumber_fk) REFERENCES readers (readernumber_pk) ON DELETE CASCADE,
   FOREIGN KEY (libraryid_fk) REFERENCES libraries (libraryid_pk) ON DELETE CASCADE,
   FOREIGN KEY (booknumber_fk) REFERENCES books (booknumber_pk) ON DELETE CASCADE
 );
