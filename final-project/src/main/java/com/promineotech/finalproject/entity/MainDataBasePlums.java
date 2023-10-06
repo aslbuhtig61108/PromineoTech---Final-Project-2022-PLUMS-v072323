@@ -8,7 +8,7 @@ import lombok.Data;
 public class MainDataBasePlums {
 
 	private int plumsid_pk;
-	private int reader_fk;
+	private int readernumber_fk;
 	private int libraryid_fk;
 	private int booknumber_fk;
 }
