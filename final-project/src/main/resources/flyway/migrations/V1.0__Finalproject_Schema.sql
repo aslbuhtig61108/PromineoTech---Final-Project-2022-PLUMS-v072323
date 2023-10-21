@@ -28,7 +28,7 @@ CREATE TABLE readers_books (
   booknumber_fk int unsigned,
   FOREIGN KEY (readernumber_fk) REFERENCES readers (readernumber_pk) ON DELETE CASCADE,
   FOREIGN KEY (booknumber_fk) REFERENCES books (booknumber_pk) ON DELETE cascade,
-  unique key (readernumber_fk, booknumber_fk)
+  UNIQUE KEY (readernumber_fk, booknumber_fk)
 );
 
 CREATE TABLE libraries (

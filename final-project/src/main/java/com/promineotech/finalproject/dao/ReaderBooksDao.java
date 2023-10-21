@@ -1,12 +1,12 @@
-package com.promineotech.finalproject.service;
+package com.promineotech.finalproject.dao;
 
 import java.util.List;
 
-// import com.promineotech.finalproject.entity.Book;
 import com.promineotech.finalproject.entity.ReadersBooks;
 
-public interface ReaderBooksService {
+public interface ReaderBooksDao {
 
 	List<ReadersBooks> retrieveAllReadersAndTheirBooks(int readernumber_fk);
+
 
 }

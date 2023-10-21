@@ -9,8 +9,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Library {
+public class ReadersBooks {
 
-	private int libraryid_pk;
+	private int readernumber_fk;
+	private String reader_id;
+	private String phone;
+	private String email;
 	private int booknumber_fk;
+	private String title;
 }

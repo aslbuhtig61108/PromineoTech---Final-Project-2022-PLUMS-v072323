@@ -2,9 +2,11 @@ package com.promineotech.finalproject.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.promineotech.finalproject.entity.Book;
+import com.promineotech.finalproject.dao.ReaderBooksDao;
+import com.promineotech.finalproject.entity.ReadersBooks;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -12,11 +14,13 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class DefaultReaderBooksService implements ReaderBooksService {
 
+	@Autowired
+	private ReaderBooksDao readerBooksDao;
 
 	@Override
-	public List<Book> retrieveAllReaderAndTheirBooks() {
+	public List <ReadersBooks> retrieveAllReadersAndTheirBooks(int readernumber_fk) {
 		log.info("Service: This method retrieves all available readers and their books.");
-		return null;
+		return readerBooksDao.retrieveAllReadersAndTheirBooks(readernumber_fk);
 	}
 
 }
