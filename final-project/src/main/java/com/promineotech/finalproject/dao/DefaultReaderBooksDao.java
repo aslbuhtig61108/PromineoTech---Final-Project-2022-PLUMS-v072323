@@ -31,15 +31,15 @@ public class DefaultReaderBooksDao implements ReaderBooksDao {
 			+ "SELECT r.readernumber_pk, r.reader_id, r.phone, r.email, "
 			+ "b.booknumber_pk, b.title FROM readers r "
 			+ "JOIN readers_books rb ON r.readernumber_pk = rb.readernumber_fk "
-			+ "JOIN books b ON b.booknumber_pk = rb.booknumber_fk ";
-//			+ "WHERE rb.readernumber_fk = :rb.readernumber_fk";
+			+ "JOIN books b ON b.booknumber_pk = rb.booknumber_fk "
+			+ "WHERE rb.readernumber_fk = :readernumber_fk";		
 		System.out.println(sql);
 		System.out.println(readernumber_fk);
 		
 		// @formatter:on
 		
 		Map<String, Object> params = new HashMap<>();
-		params.put("rb.readernumber_fk", readernumber_fk);
+		params.put("readernumber_fk", readernumber_fk);
 
 		return jdbcTemplate.query(sql, params, new RowMapper<>() {
 			
@@ -48,12 +48,13 @@ public class DefaultReaderBooksDao implements ReaderBooksDao {
 				
 				
 				// @formatter:off
-				return ReadersBooks.builder().readernumber_fk(rs.getInt(readernumber_fk))
+				return ReadersBooks.builder()
+					.readernumber_fk(rs.getInt(readernumber_fk))
 					.reader_id(rs.getString("reader_id"))
 					.phone(rs.getString("phone"))
 					.email(rs.getString("email"))
-					.booknumber_fk(rs.getInt(readernumber_fk))
-					.title(rs.getNString("title"))
+					.booknumber_fk(rs.getInt("booknumber_pk"))
+					.title(rs.getString("title"))
 					.build();
 				// @formatter:on
 			}});

@@ -12,10 +12,10 @@ INSERT INTO books (isbn, genre, title, book_authors, notes) VALUES('978-0-7653-8
 INSERT INTO books (isbn, genre, title, book_authors, notes) VALUES('978-1-138-91952-5', 'MANAGEMENT', 'Customer Relationship Management', 'Roger J. Baran and Robert J. Galka', '2nd Edition and paper back');
 
 -- Readers
-INSERT INTO readers (reader_id, first_name, last_name, phone, email) VALUES('EDWIN_BELMONTE', 'Edwin', 'Belmonte', '678-209-6601', 'edwin_b@village.com');
+INSERT INTO readers (reader_id, first_name, last_name, phone, email) VALUES('EDWIN_BELMONTE', 'Edwin', 'Belmonte', '678-209-6601', 'edwinb@village.com');
 INSERT INTO readers (reader_id, first_name, last_name, phone, email) VALUES('ELENA_ZARAGOSA', 'Elena', 'Zaragoza', '808-432-1221', 'ez808@hottmail.com');
 INSERT INTO readers (reader_id, first_name, last_name, phone, email) VALUES('MARICEL_SMITH', 'Maricel', 'Smith', '404-552-0012', 'marsmi404@hottmail.com');
-INSERT INTO readers (reader_id, first_name, last_name, phone, email) VALUES('LUIS_JONES', 'Luis', 'Jones', '755.223.5969', 'lujo725@compress.com');
+INSERT INTO readers (reader_id, first_name, last_name, phone, email) VALUES('LUIS_JONES', 'Luis', 'Jones', '755-223-5969', 'lujo725@kompress.com');
 INSERT INTO readers (reader_id, first_name, last_name, phone, email) VALUES('JUAN_LUNA', 'Juan', 'Luna', '503-235-5232', 'jlunax@geemail.com');
 INSERT INTO readers (reader_id, first_name, last_name, phone, email) VALUES('VICENTE_ELIZALDE', 'Vicente', 'Elizalde', '940-521-2309', 'viczal@compress.com');
 INSERT INTO readers (reader_id, first_name, last_name, phone, email) VALUES('GERALDINE_JAVIER', 'Geraldine', 'Javier', '230-994-4425', 'javine492@geemail.com');

@@ -9,7 +9,7 @@ CREATE TABLE readers (
   first_name varchar(30) NOT NULL, 
   last_name varchar(50) NOT NULL,
   phone varchar(15),
-  email varchar(32),
+  email varchar(42),
   PRIMARY KEY (readernumber_pk)
 );
 
