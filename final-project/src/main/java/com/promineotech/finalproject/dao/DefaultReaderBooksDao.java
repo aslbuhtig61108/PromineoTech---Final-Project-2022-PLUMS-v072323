@@ -49,7 +49,7 @@ public class DefaultReaderBooksDao implements ReaderBooksDao {
 				
 				// @formatter:off
 				return ReadersBooks.builder()
-					.readernumber_fk(rs.getInt(readernumber_fk))
+					.readernumber_fk(readernumber_fk)
 					.reader_id(rs.getString("reader_id"))
 					.phone(rs.getString("phone"))
 					.email(rs.getString("email"))
