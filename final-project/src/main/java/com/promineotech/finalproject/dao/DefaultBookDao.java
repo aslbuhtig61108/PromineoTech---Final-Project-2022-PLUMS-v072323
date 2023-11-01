@@ -55,7 +55,7 @@ public class DefaultBookDao implements BookDao {
 		});
 	}
 	
-	// Retrieves a list of books from the books table either by isbn and/or genre
+	// Retrieves a list of books either by isbn and/or genre
 	@Override
 	public List<Book> retrieveABook(String isbn, Genre genre) {
 		log.debug("DAO: ISBN={} or Genre={}",isbn, genre);
@@ -89,6 +89,7 @@ public class DefaultBookDao implements BookDao {
 			}});
 	}
 
+	// Saves a new book entry 
 	@Override
 	public Book saveNewBook(String title, String isbn,
 			String book_authors, String genre, String notes) {
@@ -123,6 +124,7 @@ public class DefaultBookDao implements BookDao {
 		// @formatter:on	
 	}
 
+	// Deletes an existing book entry	
 	@Override
 	public Book deleteBook(int booknumber_pk) {
 		log.debug("DAO: The book that was deleted has primary key ={}", booknumber_pk);
@@ -141,6 +143,7 @@ public class DefaultBookDao implements BookDao {
 		return Book.builder().booknumber_pk(booknumber_pk).build();
 	}
 
+	// Updates an existing book entry
 	@Override
 	public Book updateBook(int booknumber_pk, String title, String isbn, String isbn2, String book_authors,
 			Genre genre, String notes) {

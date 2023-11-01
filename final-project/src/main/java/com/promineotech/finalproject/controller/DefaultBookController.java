@@ -38,6 +38,7 @@ public class DefaultBookController implements BookController {
 		return bookService.createNewBook(newBookEntry);
 	}
 
+	// This method requests user input to delete a book entry	
 	@Override
 	public Book deleteBook(int booknumber_pk) {
 		log.debug("Controller: The book with primary key ={} will be deleted", booknumber_pk);
@@ -45,6 +46,7 @@ public class DefaultBookController implements BookController {
 		return bookService.deleteBook(booknumber_pk);
 	}
 
+	// This method requests user input to update an existing book entry	
 	@Override
 	public Book updateBook(int booknumber_pk, String title, String isbn, String book_authors, Genre genre,
 			String notes) {

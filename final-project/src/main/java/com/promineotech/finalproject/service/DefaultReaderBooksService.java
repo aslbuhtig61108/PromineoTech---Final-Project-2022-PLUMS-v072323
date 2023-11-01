@@ -19,7 +19,7 @@ public class DefaultReaderBooksService implements ReaderBooksService {
 
 	@Override
 	public List <ReadersBooks> retrieveAllReadersAndTheirBooks(int readernumber_fk) {
-		log.info("Service: This method retrieves all available readers and their books.");
+		log.info("Service: This method retrieves all books by reader number.");
 		return readerBooksDao.retrieveAllReadersAndTheirBooks(readernumber_fk);
 	}
 

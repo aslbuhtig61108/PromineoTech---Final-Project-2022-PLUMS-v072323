@@ -19,7 +19,7 @@ public class DefaultReaderBooksController implements ReaderBooksController {
 
 	@Override
 	public List<ReadersBooks> retrieveAllReadersAndTheirBooks(int readernumber_fk) {
-		log.debug("Controller: This operation lists all available reader-books records.");
+		log.debug("Controller: All available books by reader are listed.");
 		return readerBooksService.retrieveAllReadersAndTheirBooks(readernumber_fk);
 	}
 		

@@ -17,8 +17,8 @@ public class DefaultReaderController implements ReaderController {
 	@Autowired
 	private ReaderService readerService;
 	
-	// Similar to the Book entity, this classes 
-	// manages operations associated with the reader database
+	// This method allows the user to retrieve a list of 
+	// all existing readers including associated information
 	@Override
 	public List<Reader> getAllReaders() {
 		log.debug("Controller: This operation obtains a list of all available readers.");		
